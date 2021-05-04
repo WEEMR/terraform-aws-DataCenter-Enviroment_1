@@ -8,7 +8,7 @@ resource "aws_route53_zone" "Public_SubHosted_Zone" {
 
 resource "aws_route53_record" "activate_zone" {
   zone_id = data.aws_route53_zone.Public_Hosted_Zone.zone_id
-  name    = aws_route53_zone.SubHosted_Zone.name
+  name    = aws_route53_zone.Public_SubHosted_Zone.name
   type    = "NS"
   ttl     = "10"
   records = aws_route53_zone.Public_SubHosted_Zone.name_servers
