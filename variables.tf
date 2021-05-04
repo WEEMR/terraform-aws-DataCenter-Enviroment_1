@@ -9,8 +9,7 @@ variable Password {}   #  FGT Admin Password & VPN user Passsword
 # ------------------------------------------------------ DNS ------------------------------------------------------------ #
 
 variable Public_Hosted_Zone {}     # you must have your domain registerd with AWS Route53 or AWS manages the domain DNS i.e xyz.com 
-variable Private_SubHosted_Zone {} # Create a private Sub-Hosted Zone for the domain name i.e lab.xyz.com (private only)
-variable Public_SubHosted_Zone {}  # Creates a public a public Sub-Hostez zone for the domain i.e lab.xyz.com (Public)
+variable SubHosted_Zone {} # Create a private Sub-Hosted Zone for the domain name i.e lab.xyz.com (private & Public)
 
 variable "Region" {
   default = "us-east-1"
