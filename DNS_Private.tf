@@ -30,8 +30,14 @@ resource "aws_route53_record" "Private_Linux" {
   records = [aws_network_interface.Ubuntu_WebServer_eth0.private_ip]
 }
 
+resource "time_sleep" "wait_15_seconds_Private" {
+  depends_on = [aws_route53_record.Private_Linux]
+
+  create_duration = "15s"
+}
 
 resource "aws_route53_record" "Private_WebServer" {
+  depends_on = [time_sleep.wait_15_seconds_Private]
   zone_id = aws_route53_zone.PvtHostedZone.zone_id
   name    = "WebServer.${aws_route53_zone.PvtHostedZone.name}"
   type    = "A"
