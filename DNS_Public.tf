@@ -31,14 +31,14 @@ resource "aws_route53_record" "FGT_Public" {
   records = [aws_eip.FGT_EIP.public_ip]
 }
 
-resource "time_sleep" "wait_15_seconds" {
+resource "time_sleep" "wait_15_seconds_Public" {
   depends_on = [aws_route53_record.FGT_Public]
 
   create_duration = "15s"
 }
 
 resource "aws_route53_record" "Linux_Public" {
-  depends_on = [time_sleep.wait_15_seconds]
+  depends_on = [time_sleep.wait_15_seconds_Public]
   zone_id    = aws_route53_zone.Public_SubHosted_Zone.zone_id
   name       = "linux.${aws_route53_zone.Public_SubHosted_Zone.name}"
   type       = "A"
@@ -51,7 +51,7 @@ resource "aws_route53_record" "Linux_Public" {
 }
 
 resource "aws_route53_record" "WebServer_Public" {
-  depends_on = [time_sleep.wait_15_seconds]
+  depends_on = [time_sleep.wait_15_seconds_Public]
   zone_id    = aws_route53_zone.Public_SubHosted_Zone.zone_id
   name       = "WebServer.${aws_route53_zone.Public_SubHosted_Zone.name}"
   type       = "A"
