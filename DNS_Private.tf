@@ -1,5 +1,5 @@
 resource "aws_route53_zone" "PvtHostedZone" {
-  name = var.Private_SubHosted_Zone
+  name = var.SubHosted_Zone
   vpc {
     vpc_id = aws_vpc.SDWAN_VPC.id
   }
