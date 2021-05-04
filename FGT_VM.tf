@@ -76,7 +76,7 @@ data "template_file" "FortiGate" {
     adminsport             = "${var.adminsport}"
     username               = "${var.username}"
     Password               = "${var.Password}"
-    Private_SubHosted_Zone = "${var.Private_SubHosted_Zone}"
+    SubHosted_Zone         = "${var.SubHosted_Zone}"
     FMG                    = aws_route53_record.Private_FMG.name
     Ubuntu_LAN_IP          = "${var.Ubuntu_LAN_IP[0]}"
     FGT_WAN_IP             = "${var.FGT_WAN_IP[0]}"
