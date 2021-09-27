@@ -90,12 +90,12 @@ variable "Ubuntu_WebServer_AMI" {
 
 variable "FMG_VM_Size" {
   description = "FMG Instance Size"
-  default     = "t2.medium"
+  default     = "t3.medium"
 }
 
 variable "FGT_VM_Size" {
   description = "FGT Instance Size"
-  default     = "t2.small"
+  default     = "t3.small"
 }
 
 variable "Ubuntu_VM_Size" {
